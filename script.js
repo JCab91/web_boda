@@ -70,6 +70,9 @@ function initializeNavigation() {
     // Update active navigation item on scroll
     window.addEventListener('scroll', updateActiveNavItem);
 
+    // Add scroll behavior for mobile navigation
+    window.addEventListener('scroll', handleMobileNavScroll);
+
     // Initial call to set correct active item
     setTimeout(updateActiveNavItem, 100);
 }
@@ -378,6 +381,21 @@ function debounce(func, wait) {
         clearTimeout(timeout);
         timeout = setTimeout(later, wait);
     };
+}
+
+// Mobile navigation scroll handler
+function handleMobileNavScroll() {
+    const nav = document.querySelector('.nav');
+    const scrollY = window.scrollY;
+    
+    // Only apply on mobile screens
+    if (window.innerWidth <= 768) {
+        if (scrollY > 100) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    }
 }
 
 // Debounced scroll listener for better performance

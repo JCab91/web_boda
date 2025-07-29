@@ -177,6 +177,7 @@ body {
     border-bottom: 1px solid rgba(139, 115, 85, 0.15);
     z-index: 1000;
     box-shadow: var(--shadow-soft);
+    transition: var(--transition);
 }
 
 .nav-container {
@@ -1033,21 +1034,42 @@ body {
     
     /* Navigation - Más compacta en móvil */
     .nav {
-        padding: 0.5rem 0;
+        padding: 0.3rem 0;
+        transform: translateY(0);
+    }
+    
+    .nav.scrolled {
+        padding: 0.2rem 0;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
     }
     
     .nav-container {
-        gap: 0.5rem;
-        padding: 0.5rem 10px;
-        flex-wrap: wrap;
-        justify-content: center;
+        gap: 0.2rem;
+        padding: 0.3rem 5px;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    
+    .nav-container::-webkit-scrollbar {
+        display: none;
     }
     
     .nav-link {
-        padding: 0.6rem 1rem;
-        font-size: 0.85rem;
-        border-radius: 20px;
+        padding: 0.4rem 0.7rem;
+        font-size: 0.75rem;
+        border-radius: 15px;
         min-width: auto;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+    
+    .nav.scrolled .nav-link {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.7rem;
     }
     
     /* Hero section más compacto */
