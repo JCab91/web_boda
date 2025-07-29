@@ -279,17 +279,16 @@
                     </div>
                 </div>
                 
-                <div class="rsvp-info">
-                    <div class="info-item">
-                        <i class="fas fa-calendar-alt"></i>
-                        <div>
-                            <h4>Fecha límite</h4>
-                            <p>Por favor, confirma antes del <strong>1 de junio de 2026</strong></p>
-                        </div>
-                    </div>
+                <div class="rsvp-cta">
+                    <button class="rsvp-main-btn" onclick="scrollToForm()">
+                        <span class="btn-icon"><i class="fas fa-heart"></i></span>
+                        <span class="btn-text">¡Confirma tu Asistencia!</span>
+                        <span class="btn-hint">👆 Haz clic aquí</span>
+                    </button>
+                    <p class="rsvp-deadline">Por favor, confirma antes del <strong>1 de junio de 2026</strong></p>
                 </div>
 
-                <form id="rsvp-form" class="rsvp-form">
+                <form id="rsvp-form" class="rsvp-form" style="display: none;">
                     <div class="form-grid">
                         <div class="form-group">
                             <label for="nombre">Nombre completo *</label>

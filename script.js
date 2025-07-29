@@ -414,7 +414,52 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
+// Function to scroll to form when CTA button is clicked
+function scrollToForm() {
+    const form = document.getElementById('rsvp-form');
+    const button = document.querySelector('.rsvp-main-btn');
+    
+    if (form) {
+        // Show form with animation
+        form.style.display = 'block';
+        form.style.opacity = '0';
+        form.style.transform = 'translateY(30px)';
+        
+        // Animate form appearance
+        setTimeout(() => {
+            form.style.transition = 'all 0.6s ease';
+            form.style.opacity = '1';
+            form.style.transform = 'translateY(0)';
+        }, 10);
+        
+        // Scroll to form
+        setTimeout(() => {
+            form.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }, 300);
+        
+        // Focus on first input after scroll and animation
+        setTimeout(() => {
+            const firstInput = form.querySelector('input[type="text"]');
+            if (firstInput) {
+                firstInput.focus();
+            }
+        }, 1200);
+        
+        // Hide the CTA button after click
+        if (button) {
+            button.style.transition = 'all 0.5s ease';
+            button.style.opacity = '0.7';
+            button.style.transform = 'scale(0.95)';
+            button.style.pointerEvents = 'none';
+        }
+    }
+}
+
 // Hacer disponible la función de exportación globalmente (para testing)
 window.exportLocalData = exportLocalData;
+window.scrollToForm = scrollToForm;
 
 console.log('🎉 Wedding website loaded successfully! 💕');
